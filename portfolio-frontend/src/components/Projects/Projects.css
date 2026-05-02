@@ -1,0 +1,203 @@
+.projects {
+  background: linear-gradient(180deg, transparent, rgba(253, 121, 168, 0.03), transparent);
+}
+
+/* ── Filter Tabs ── */
+.project-filters {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.filter-btn {
+  padding: 0.48rem 1.3rem;
+  border-radius: 50px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: var(--font-main);
+  white-space: nowrap;
+}
+
+.filter-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+.filter-btn.active {
+  background: var(--gradient);
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+}
+
+/* ── Projects Grid ── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+/* ── Project Card ── */
+.project-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: var(--transition);
+  cursor: default;
+}
+
+.project-card:hover {
+  border-color: rgba(108, 99, 255, 0.4);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.project-glow {
+  position: absolute;
+  bottom: -50px; left: 50%;
+  transform: translateX(-50%);
+  width: 150px; height: 150px;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.project-card:hover .project-glow { opacity: 0.15; }
+
+/* Card Top */
+.project-top {
+  padding: 1.4rem 1.4rem 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.project-emoji {
+  width: 50px; height: 50px;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.project-category {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.28rem 0.75rem;
+  border-radius: 50px;
+  border: 1px solid;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+/* Card Body */
+.project-body {
+  padding: 0 1.4rem 1rem;
+  flex: 1;
+}
+
+.project-title {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.6rem;
+}
+
+.project-desc {
+  font-size: clamp(0.82rem, 1.4vw, 0.88rem);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.project-tag {
+  padding: 0.22rem 0.65rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50px;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  font-family: var(--font-code);
+  white-space: nowrap;
+}
+
+/* Card Footer */
+.project-footer {
+  padding: 0.9rem 1.4rem 1.4rem;
+  display: flex;
+  gap: 1rem;
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+  flex-wrap: wrap;
+}
+
+.project-link {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: var(--transition);
+  padding: 0.3rem 0;
+  white-space: nowrap;
+}
+
+.project-link:hover { color: var(--primary); }
+.project-link-live:hover { opacity: 0.8; }
+
+/* CTA */
+.projects-cta {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.projects-cta p {
+  color: var(--text-secondary);
+  font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+/* ===== BREAKPOINTS ===== */
+
+@media (max-width: 1024px) {
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .projects-grid { grid-template-columns: 1fr; }
+  .project-top { padding: 1.2rem 1.2rem 0.8rem; }
+  .project-body { padding: 0 1.2rem 0.9rem; }
+  .project-footer { padding: 0.8rem 1.2rem 1.2rem; }
+}
+
+@media (max-width: 480px) {
+  .filter-btn { padding: 0.42rem 1rem; font-size: 0.82rem; }
+  .project-filters { gap: 0.45rem; }
+}
+
+@media (max-width: 375px) {
+  .projects-grid { gap: 1rem; }
+}
